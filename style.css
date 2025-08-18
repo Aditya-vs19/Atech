@@ -1,0 +1,453 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* prevents horizontal scroll */
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #e7e7e7;
+    min-height: 100vh;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+.image-gradient{
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.layer-blur{
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 700px 15px white;
+    rotate: -30deg;
+    z-index: -1;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+    z-index: 999;
+}
+
+header h1{
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 300;
+}
+nav{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+}
+
+nav a{
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+nav a:hover{
+    color: #a7a7a7;
+}
+
+.btn-signing{
+    background-color: #a7a7a7;
+    color: black;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-signing:hover{
+    background-color: white;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(90vh - 6rem);
+}
+
+.content{
+    max-width: 40rem;
+    margin-left: 10%;
+    z-index: 999;
+}
+
+.tag-box{
+    position: relative;
+    width: 18rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    background: linear-gradient(to right, #656565, #7f42a7, #00d4ff, #00ff88, #757575, #656565);
+    background-size: 200%;
+    animation: animationGradient 2.5s linear infinite;
+    box-shadow: 0 0 15px rgb(255, 255, 255, 0.3);
+}
+
+@keyframes animationGradient {
+    to{
+        background-position: 200%;
+    }
+}
+
+.tag-box .tag{
+    position: absolute;
+    inset: 3px 3px 3px 3px;
+    background-color: black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.tag-box .tag:hover{
+    color: #5300a0;
+}
+
+
+/* Fullscreen dark overlay */
+#loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111; /* dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+/* Hide smoothly */
+#loader-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Loader (your earlier one) */
+.loader {
+  width: 120px;
+  height: 22px;
+  border-radius: 40px;
+  color: #fff;
+  border: 2px solid;
+  position: relative;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  width: 25%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  50% { left:100%; transform: translateX(calc(-100% - 4px)); }
+}
+
+
+
+.content h1{
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 2rem;
+    line-height: 1.2;
+    text-shadow: 0 0 10px rgba(128, 128, 128, 0.418);
+}
+
+.description{
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    max-width: 35rem;
+    color: grey;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+.btn-get-started{
+    text-decoration: none;
+    border: 1px solid #2a2a2a;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    /*wrong fontweight: 200em*/ 
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn-get-started:hover{
+    background-color: #1a1a1a;
+}
+
+.btn-signing-main {
+    text-decoration: none;
+    background-color: lightgray;
+    color: black;
+    padding: 0.6rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn-signing-main:hover{
+    
+    background-color: grey;
+}
+
+/* FEATURES SECTION STYLES */
+.features-section {
+    margin-top: 12rem;
+    margin-bottom: 4rem;
+    z-index: 5;
+    position: relative;
+}
+
+.section-header{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.features-tag {
+    margin: 0 auto 2rem auto;
+    width: 12rem;
+    height: 2.2rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(128, 128, 128, 0.418);
+}
+
+.section-description {
+    font-size: 1.3rem;
+    color: grey;
+    max-width: 50rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient (to right, #7f42a7, #00d4ff, #00ff88);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #00d4ff;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #e7e7e7;
+    letter-spacing: 0.05em;
+}
+
+.feature-card p {
+    color: #a7a7a7;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.robot-3d {
+    position: absolute;
+    top: 0;
+    right: -20%;
+    z-index: -1;   /* put it behind everything */
+    pointer-events: none; /* make it non-blocking for clicks */
+}
+
+
+
+@media (max-width: 1300px) {
+
+    header{
+        padding: 1rem 0.5rem;
+    }
+
+    .content{
+        margin-top: 85%;
+    }
+
+    .robot-3d{
+        scale: 0.8;
+        top: -20%;
+        right: 2%;
+    }
+    
+    /* Features section mobile styles */
+    .features-section {
+        margin-top: 3rem;
+        padding: 0 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .feature-card {
+        padding: 2rem;
+    }
+    
+}
+
+
+.docs-section {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 5;
+}
+
+.docs-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #7f42a7;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.docs-link:hover {
+    color: #a066d8;
+}
+
+
+
+/* Theme Toggle Button */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+/* Dark theme (default) is already your current CSS */
+
+/* Light Theme Overrides */
+body.light-theme {
+  background: #f5f5f5;
+  color: #111;
+}
+
+body.light-theme .wrapper {
+  background: linear-gradient(135deg, #fff, #e4e4e4);
+}
+
+body.light-theme .container {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+body.light-theme h1,
+body.light-theme p {
+  color: #111;
+}
+
+body.light-theme a {
+  background: #111;
+  color: #fff;
+}
